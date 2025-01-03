@@ -3,7 +3,14 @@ import Link from "next/link";
 import React from "react";
 import { GetAvailableRooms } from "@/server-actions/bookings";
 
-async function RoomsData({ searchParams }: { searchParams: any }) {
+interface SearchParams {
+  checkIn?: string;
+  checkOut?: string;
+  type?: string;
+  name?: string;
+}
+
+async function RoomsData({ searchParams }: { searchParams: SearchParams }) {
   const response = await GetAvailableRooms({
     reqCheckInDate: searchParams.checkIn || "",
     reqCheckOutDate: searchParams.checkOut || "",
