@@ -31,6 +31,7 @@ async function RoomsData({ searchParams }: { searchParams: SearchParams }) {
           key={room._id}
           className="no-underline text-black"
         >
+          
           <div className="flex flex-col gap-2 border border-gray-200 border-solid room-card">
             <img src={room.media[3]} className="w-full h-54 object-cover" />
             <div className="px-3 py-2 flex flex-col text-sm gap-2">
