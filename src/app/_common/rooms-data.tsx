@@ -1,5 +1,4 @@
 import { RoomType } from "@/interfaces";
-import RoomModel from "@/models/room-model";
 import Link from "next/link";
 import React from "react";
 import { GetAvailableRooms } from "@/server-actions/bookings";

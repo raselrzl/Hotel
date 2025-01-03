@@ -4,7 +4,14 @@ import { FilterX, Search } from "lucide-react";
 import React from "react";
 import { useRouter } from "next/navigation";
 
-function Filters({ searchParams }: { searchParams: any }) {
+interface SearchParams {
+  checkIn?: string;
+  checkOut?: string;
+  type?: string;
+  name?: string;
+}
+
+function Filters({ searchParams }: { searchParams: SearchParams }) {
   const [checkIn, setCheckIn] = React.useState(searchParams.checkIn || "");
   const [checkOut, setCheckOut] = React.useState(searchParams.checkOut || "");
   const [type, setType] = React.useState(searchParams.type || "");
@@ -12,7 +19,13 @@ function Filters({ searchParams }: { searchParams: any }) {
   const router = useRouter();
 
   const onSearch = () => {
-    const newSearchParamsObject = { ...searchParams, checkIn, checkOut, type, name };
+    const newSearchParamsObject = {
+      ...searchParams,
+      checkIn,
+      checkOut,
+      type,
+      name,
+    };
     const newSearchParams = new URLSearchParams(
       newSearchParamsObject
     ).toString();
@@ -58,7 +71,7 @@ function Filters({ searchParams }: { searchParams: any }) {
           />
         </div>
 
-       {/*  <div className="flex flex-col gap-1">
+        {/*  <div className="flex flex-col gap-1">
           <span className="text-gray-500 text-sm">Type</span>
           <select
             className="h-10 px-10 w-full bg-gray-200 border-gray-200 border-solid border outline-none"
