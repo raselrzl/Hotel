@@ -55,7 +55,7 @@ function Checkout({ room }: { room: RoomType }) {
     }
   };
 
-  const onBookRoom = async () => {
+  /* const onBookRoom = async () => {
     try {
       setLoading(true);
       const response = await GetStripeClientSecretKey({ amount: totalAmount });
@@ -71,8 +71,32 @@ function Checkout({ room }: { room: RoomType }) {
     } finally {
       setLoading(false);
     }
-  };
+  }; */
 
+  const onBookRoom = async () => {
+    try {
+      setLoading(true);
+      const response = await GetStripeClientSecretKey({ amount: totalAmount });
+      
+      if (response.success) {
+        // Check if response.data is a valid string
+        if (typeof response.data === "string") {
+          setClientSecret(response.data);
+          console.log(response.data);
+          setShowPaymentModal(true);
+        } else {
+          message.error("Failed to retrieve valid client secret.");
+        }
+      } else {
+        message.error(response.message);
+      }
+    } catch (error: any) {
+      message.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
   useEffect(() => {
     setIsAvailable(false);
   }, [checkIn, checkOut]);
