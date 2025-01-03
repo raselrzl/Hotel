@@ -1,4 +1,4 @@
-"use client"
+/* "use client"
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import "leaflet/dist/leaflet.css";
@@ -63,3 +63,4 @@ function Map({ datas }: MapProps) {
 }
 
 export default Map;
+ */
