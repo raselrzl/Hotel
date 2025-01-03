@@ -200,7 +200,7 @@ export const GetAvailableRooms = async ({
 }) => {
   try {
     // Define initial query with optional filters
-    let query: any = {};
+    const query: any = {};
 
     if (type) {
       query.type = type;
