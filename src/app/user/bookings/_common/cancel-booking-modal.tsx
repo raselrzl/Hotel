@@ -16,6 +16,11 @@ function CancelBookingModal({
   const [loading, setLoading] = React.useState(false);
   const onCancelBooking = async () => {
     try {
+
+      if (!booking?._id || !booking?.paymentId) {
+        message.error("Invalid booking data.");
+        return;
+      }
       setLoading(true);
       const response = await CancelBooking({
         bookingId: booking._id,
@@ -35,6 +40,9 @@ function CancelBookingModal({
     }
   };
 
+  if (!booking) {
+    return null; 
+  }
   return (
     <Modal
       title={<div className="text-red-700 font-bold">Cancel Booking</div>}
