@@ -45,3 +45,7 @@ async function HotelsPage({ searchParams }: { searchParams: any }) {
 
 export default HotelsPage;
  */
+
+export default function Page() {
+  return <h1>Hello</h1>;
+}
