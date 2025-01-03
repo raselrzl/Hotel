@@ -17,7 +17,7 @@ function CancelBookingModal({
   const onCancelBooking = async () => {
     try {
 
-      if (!booking?._id || !booking?.paymentId) {
+      if (!booking || !booking._id || !booking.paymentId) {
         message.error("Invalid booking data.");
         return;
       }
