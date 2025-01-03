@@ -1,4 +1,4 @@
-// hotels/page.tsx
+/* // hotels/page.tsx
 import HotelModel from "@/models/hotel-model";
 import React from "react";
 import { Await } from "react-router-dom";
@@ -36,7 +36,7 @@ async function HotelsPage({ searchParams }: { searchParams: any }) {
         </div>
       </div>
       <div className="w-full lg:w-[35%] lg:h-screen lg:sticky lg:top-0 lg:pl-4 bg-gray-200 order-last lg:order-none hidden lg:block">
-        {/* Map is hidden on mobile, only visible on large screens */}
+        
         <Map datas={hotels} />
       </div>
     </div>
@@ -44,3 +44,4 @@ async function HotelsPage({ searchParams }: { searchParams: any }) {
 }
 
 export default HotelsPage;
+ */
